@@ -15,3 +15,5 @@ $ node index.js
 ```
 $ node index.js [-i <input_file>] [-o <output_file>]
 ```
+
+If all was ok, the file ```output/output.log``` should have been created.
