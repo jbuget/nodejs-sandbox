@@ -40,15 +40,12 @@ function generateReport(outputFile, results) {
 
     return new Promise(function(resolve, reject) {
 
-        fs.unlink(outputFile, () => {
+        fs.writeFile(outputFile, results.join('\r\n'), (err) => {
 
-            fs.appendFile(outputFile, results.join('\r\n'), (err) => {
+            if (err) throw err;
 
-                if (err) throw err;
-
-                console.log('Report generated with success!');
-                return resolve(true);
-            });
+            console.log('Report generated with success!');
+            return resolve(true);
         });
     });
 }

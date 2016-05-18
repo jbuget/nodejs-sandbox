@@ -1,0 +1,16 @@
+Foo#Method_A-START
+Bar#Method_1-START
+Bar#Method_1-END
+Bar#Method_2-START
+Bar#Method_2-END
+Foo#Method_A-END
+Foo#Method_B-START
+Bar#Method_3-START
+Bar#Method_3-END
+Foo#Method_B-END
+Foo#Method_A-START
+Bar#Method_1-START
+Bar#Method_1-END
+Bar#Method_2-START
+Bar#Method_2-END
+Foo#Method_A-END
