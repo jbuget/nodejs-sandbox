@@ -1,4 +1,4 @@
-const Analyzer = require('./analyzer');
+const Analyzer = require('./src/analyzer');
 
 var input = 'input/input-1.data';
 if (process.argv.indexOf("-i") != -1) {

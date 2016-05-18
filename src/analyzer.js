@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 
 function loadData(inputFile) {
@@ -50,7 +52,7 @@ function generateReport(outputFile, results) {
     });
 }
 
-module.exports.analyze = function(input, output) {
+module.exports.analyze = (input, output) => {
 
     loadData(input)
         .then(data => parseLines(data))

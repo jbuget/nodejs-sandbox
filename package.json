@@ -4,7 +4,8 @@
   "description": "Sandbox project for learning NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha -- -R spec"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/jbuget/nodejs-sandbox/issues"
   },
-  "homepage": "https://github.com/jbuget/nodejs-sandbox#readme"
+  "homepage": "https://github.com/jbuget/nodejs-sandbox#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
+  }
 }
