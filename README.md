@@ -1,4 +1,6 @@
-# nodes-sandbox
+# nodejs-sandbox
+
+nodejs-sandbox is a simple application for learning NodeJS, and especially working with FileSystem API.
 
 ## Installation
 
