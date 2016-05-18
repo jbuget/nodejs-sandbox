@@ -53,6 +53,9 @@ function generateReport(outputFile, results) {
     });
 }
 
-loadData('input.log')
-    .then(data => parseLines(data))
-    .then(results => generateReport('output.log', results))
+module.exports.analyze = function(input, output) {
+
+    loadData(input)
+        .then(data => parseLines(data))
+        .then(results => generateReport(output, results));
+};
