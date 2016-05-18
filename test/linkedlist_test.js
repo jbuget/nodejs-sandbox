@@ -1,20 +1,22 @@
+'use strict';
+
 const chai = require('chai');
 const should = chai.should();
 const LinkedList = require('../src/linkedlist').LinkedList;
 
 describe('LinkedList', () => {
 
+    var list;
+
+    beforeEach(() => {
+        list = new LinkedList();
+    });
+
     describe('.length', () => {
-
-        var list;
-
-        beforeEach(() => {
-            list = new LinkedList();
-        });
 
         it('should be 0 when list contains no element', () => {
             // when
-            var length = list.length;
+            let length = list.length;
             // then
             length.should.be.equal(0);
         });
@@ -24,7 +26,7 @@ describe('LinkedList', () => {
             list.push(123);
             list.print();
             // when
-            var length = list.length;
+            let length = list.length;
             // then
             length.should.be.equal(1);
         });
@@ -34,7 +36,7 @@ describe('LinkedList', () => {
             list.push(123);
             list.push(456);
             // when
-            var length = list.length;
+            let length = list.length;
             // then
             length.should.be.equal(2);
         });
@@ -45,7 +47,7 @@ describe('LinkedList', () => {
             list.push(456);
             list.push(789);
             // when
-            var length = list.length;
+            let length = list.length;
             // then
             length.should.be.equal(3);
         });
@@ -57,7 +59,7 @@ describe('LinkedList', () => {
             list.push(789);
             list.push(101112);
             // when
-            var length = list.length;
+            let length = list.length;
             // then
             length.should.be.equal(4);
         });
@@ -65,12 +67,6 @@ describe('LinkedList', () => {
     });
 
     describe('#push()', () => {
-
-        var list;
-
-        beforeEach(() => {
-            list = new LinkedList();
-        });
 
         it ('should have length of 1 after one push', () => {
             // when
@@ -110,15 +106,9 @@ describe('LinkedList', () => {
 
     describe('#isEmpty()', () => {
 
-        var list;
-
-        beforeEach(() => {
-            list = new LinkedList();
-        });
-
         it('should return true if the list contains no item', () => {
             // when
-            var actual = list.isEmpty();
+            let actual = list.isEmpty();
 
             // then
             actual.should.be.true;
@@ -129,10 +119,43 @@ describe('LinkedList', () => {
             list.push(123);
 
             // when
-            var actual = list.isEmpty();
+            let actual = list.isEmpty();
 
             // then
             actual.should.be.false;
+        });
+    });
+
+    describe('#pop()', () => {
+
+        it ('should return null when list is empty', () => {
+            // when
+            let actual = list.pop();
+            // then
+            should.not.exist(actual);
+        });
+
+        it ('should remove and return the ultimate element when list contains only 1 element', () => {
+            // given
+            list.push(123);
+            // when
+            let actual = list.pop();
+            // then
+            actual.data.should.be.equal(123);
+            list.length.should.be.equal(0);
+            should.not.exist(list.head);
+        });
+
+        it ('should remove and return the last element when list contains more than 1 element', () => {
+            // given
+            list.push(123);
+            list.push(456);
+            list.push(789);
+            // when
+            let actual = list.pop();
+            // then
+            actual.data.should.be.equal(789);
+            list.length.should.be.equal(2);
         });
     });
 });

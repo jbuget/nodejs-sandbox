@@ -52,7 +52,6 @@ class LinkedList {
         }
     }
 
-    // add last
     push(value) {
         if (this._head === null) {
             this._head = new Node(value);
@@ -69,9 +68,22 @@ class LinkedList {
         }
     }
 
-    // poll last
     pop() {
-
+        if (this._head === null) {
+            return null;
+        }
+        let node = this._head;
+        if (node.next === null) {
+            this._head = null;
+            return node;
+        } else {
+            while (node.next.next !== null) {
+                node = node.next;
+            }
+            let result = node.next;
+            node.next = null;
+            return result;
+        }
     }
 
     // poll first
@@ -86,5 +98,4 @@ class LinkedList {
 
 };
 
-module.exports.Node = Node;
 module.exports.LinkedList = LinkedList;
