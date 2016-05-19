@@ -158,4 +158,59 @@ describe('LinkedList', () => {
             list.length.should.be.equal(2);
         });
     });
+
+    describe('#shift()', () => {
+
+        it('should return null when list is empty', () => {
+            // when
+            let actual = list.shift();
+            // then
+            should.not.exist(actual);
+        });
+
+        it('should remove and return the ultimate element when list contains only 1 element', () => {
+            // given
+            list.push(123);
+            // when
+            let actual = list.shift();
+            // then
+            actual.data.should.be.equal(123);
+            list.length.should.be.equal(0);
+            should.not.exist(list.head);
+        });
+
+        it('should remove and return the first element when list contains more than 1 element', () => {
+            // given
+            list.push(123);
+            list.push(456);
+            list.push(789);
+            // when
+            let actual = list.shift();
+            // then
+            actual.data.should.be.equal(123);
+            list.length.should.be.equal(2);
+        });
+    });
+
+    describe ('#unshift()', () => {
+
+        it ('should increase list length', () => {
+            // when
+            list.unshift(123);
+            // then
+            list.length.should.be.equal(1);
+        });
+
+        it ('should add item in first position', () => {
+            // given
+            list.push('B');
+            list.push('C');
+            list.push('D');
+            // when
+            let actual = list.unshift('A');
+            // then
+            list.head.data.should.be.equal('A');
+        });
+    });
+
 });

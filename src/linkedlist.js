@@ -88,12 +88,18 @@ class LinkedList {
 
     // poll first
     shift() {
-
+        if (this._head === null) {
+            return null;
+        }
+        let node = this._head;
+        this._head = node.next;
+        return node;
     }
 
     // add first
     unshift(value) {
-
+        let node = new Node(value, this._head);
+        this._head = node;
     }
 
 };
